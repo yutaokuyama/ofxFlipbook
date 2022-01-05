@@ -28,18 +28,21 @@ public:
         }
     }
     
-    void draw(const glm::vec2 position=glm::vec2(0.0)){
+    void draw(const glm::vec2 position=glm::vec2(0.0)) const {
         
         currentImage.draw(position);
     }
     
-    void draw(const int x,const int y,const int w,const int h) {
+    void draw(const float x,const float y,const float w,const float h) const {
         
         currentImage.draw(x,y,w,h);
     }
     
     
-    ofTexture getTexure() {
+    const ofTexture &getTexure() const {
+        currentImage.getTexture();
+    }
+    ofTexture &getTexure() {
         currentImage.getTexture();
     }
     
@@ -60,20 +63,20 @@ public:
         checkloop();
     }
     
-    void setFrame(const int frame){
+    void setFrame(const size_t frame){
         currentFrame = frame;
         checkloop();
         loadCurrentImage();
     }
     
-    int getTotalFrame(){
+    size_t getTotalFrame(){
         return dir.size();
     }
     
 private:
     ofDirectory dir;
     ofImage currentImage;
-    int currentFrame = 0;
+    size_t currentFrame = 0;
     ofLoopType loopType = OF_LOOP_NORMAL;
     
     void loopVideo(){
