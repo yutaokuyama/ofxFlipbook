@@ -28,12 +28,12 @@ public:
         }
     }
     
-    void draw(const glm::vec2 position=glm::vec2(0.0)){
+    void draw(const glm::vec2 position=glm::vec2(0.0)) const {
         
         currentImage.draw(position);
     }
     
-    void draw(const int x,const int y,const int w,const int h) {
+    void draw(const float x,const float y,const float w,const float h) const {
         
         currentImage.draw(x,y,w,h);
     }
