@@ -60,20 +60,20 @@ public:
         checkloop();
     }
     
-    void setFrame(const int frame){
+    void setFrame(const size_t frame){
         currentFrame = frame;
         checkloop();
         loadCurrentImage();
     }
     
-    int getTotalFrame(){
+    size_t getTotalFrame(){
         return dir.size();
     }
     
 private:
     ofDirectory dir;
     ofImage currentImage;
-    int currentFrame = 0;
+    size_t currentFrame = 0;
     ofLoopType loopType = OF_LOOP_NORMAL;
     
     void loopVideo(){
