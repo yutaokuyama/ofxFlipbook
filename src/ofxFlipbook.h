@@ -39,7 +39,10 @@ public:
     }
     
     
-    ofTexture getTexure() {
+    const ofTexture &getTexure() const {
+        currentImage.getTexture();
+    }
+    ofTexture &getTexure() {
         currentImage.getTexture();
     }
     
